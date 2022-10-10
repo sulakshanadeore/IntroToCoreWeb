@@ -1,0 +1,60 @@
+﻿1) .NET core web app runs on any OS
+2) They use dependency injection to work with http pipeline.
+3) Request/Response available
+4) Dependency injection used here is mostly contructor based.
+
+-----------------------------------
+1) Main method---> Is in Program.cs
+2) main calls--- createHostBuilder() which calls StartUp Class
+3) Start Up class has constructor dependency injection implemented 
+using IConfiguration, it uses property for reading the data from the 
+appsettings.Development.json
+4) Configure and Configure Services-- these two methods are used to work 
+with http pipeline and so they are responsible for configuring any services
+required by the web app
+ConfigureServices method is used for registering the service
+whereas 
+Configure method is used for configuration of the registered service 
+with the app
+
+ConfigureServices--- USed to add services to the container--(Add)
+Configure---- configuring the http pipeline(Use)
+
+Middleware-----> components are added as per the project requirement,
+if sesssion is required --- AddSession() and then we can UseSession();
+------------------------------------------------
+Request---> Kestrel(Internal Web Server)
+
+request-->IIS---->Kestrel--->runs the app.
+---------------------------------------------------
+
+differences
+asp.net mvc(.net framework)----> IIS--- >Windows OS
+asp.net(.net Framework)-----> IIS----->Windows OS
+----------------------------
+work across platforms(across OS)---- 
+.NET Core--Linux,Unix.
+Alsos works on Mac,Android(.net standard library)  using Xamarian tools
+
+Kestrel server-----> response
+IIS--->Kestrel----
+*********************************
+1) framework will only for windows and core will work for any os
+2)json instead of xml
+3) Dependency Injection not there by default in framework
+4) instead of references  we use nuget package manager, Middlewares
+5) core is open source and cross platform whereas framework is not
+6) many ides are available
+7) web app,mobile and windows store apps, these not available in framework
+8) core has support for microservices and framework has support only till webapi.
+Webapi can call a micro services.
+9) Core has CLI(Command Line Interface) support, framework doesn't have it.
+--------------------------------------------------
+.NET Core SDK(Software Developement Kit)
+CLI ---- create and work with apps.
+open cmd--> type dotnet
+
+dotnet(drivername)
+commands:
+dotnet  <command> <arguments> <options>
+
